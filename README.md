@@ -1,11 +1,12 @@
 ## Description
----
 
 Programm will find the longest word in an input file.
-Programm was tested with HDP 2.4 sandbox.
+
+## Testing environment
+
+Programm was tested on HDP 2.4 sandbox.
 
 ## How to deploy
----
 
 1. Make hadoop-1-1.0-SNAPSHOT.jar by running maven command:
 ```
