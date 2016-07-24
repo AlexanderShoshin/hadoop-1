@@ -34,7 +34,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>shoshin.alex.hadoop.CountCitiesJob</mainClass>
+                            <mainClass>shoshin.alex.hadoop.LongestWordJob</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
