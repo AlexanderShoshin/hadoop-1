@@ -1,9 +1,5 @@
 package shoshin.alex.utils;
 
-/**
- *
- * @author Alexander_Shoshin
- */
 public class Words {
     private static final String punctuationAtTheBegining = "^[^а-яёА-ЯЁ]*";
     private static final String punctuationAtTheEnd = "[^а-яёА-ЯЁ]*$";

@@ -4,10 +4,6 @@ import java.io.IOException;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Reducer;
 
-/**
- *
- * @author Alexander_Shoshin
- */
 public class FindLongestReducer extends Reducer<NullWritable, Text, NullWritable, Text> {
     @Override
     public void reduce(NullWritable key, Iterable<Text> values, FindLongestReducer.Context context)
