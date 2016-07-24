@@ -11,9 +11,9 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class LongestWord extends Configured implements Tool {
+public class LongestWordJob extends Configured implements Tool {
     public static void main(String[] args) throws Exception {
-        int res = ToolRunner.run(new Configuration(), new LongestWord(), args);
+        int res = ToolRunner.run(new Configuration(), new LongestWordJob(), args);
         System.exit(res);
     }
     
@@ -21,9 +21,7 @@ public class LongestWord extends Configured implements Tool {
     public int run(String[] args) throws Exception {
         Job job = Job.getInstance(getConf());
         job.setJobName("findLongestWord");
-        job.setJarByClass(LongestWord.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setJarByClass(LongestWordJob.class);
         job.setOutputKeyClass(NullWritable.class);
         job.setOutputValueClass(Text.class);
         job.setMapperClass(ExtractWordsMapper.class);

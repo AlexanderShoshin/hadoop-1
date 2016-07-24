@@ -6,6 +6,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+import shoshin.alex.utils.Words;
 
 /**
  *
@@ -17,16 +18,10 @@ public class ExtractWordsMapper extends Mapper<LongWritable, Text, NullWritable,
         String line = value.toString();
         StringTokenizer tokenizer = new StringTokenizer(line);
         while (tokenizer.hasMoreTokens()) {
-            String word = removePunctuationMarks(tokenizer.nextToken());
-            if (isRussianWord(word)) {
-                context.write(NullWritable.get(), new Text(word));
+            String word = Words.removePunctuationMarks(tokenizer.nextToken());
+            if (Words.isRussianWord(word)) {
+                context.write(NullWritable.get(), new Text(word.toLowerCase()));
             }
         }
-    }
-    private String removePunctuationMarks(String word) {
-        return word.replaceAll("[^а-яёА-ЯЁ]*$", "").replaceAll("^[^а-яёА-ЯЁ]*", "");
-    }
-    private boolean isRussianWord(String word) {
-        return word.matches("[а-яёА-ЯЁ]+-?[а-яёА-ЯЁ]+");
     }
 }
