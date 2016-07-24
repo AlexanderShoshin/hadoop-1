@@ -12,7 +12,7 @@ import shoshin.alex.utils.Words;
  *
  * @author Alexander_Shoshin
  */
-public class ExtractWordsMapper extends Mapper<LongWritable, Text, NullWritable, Text> {
+public class ExtractRussianWordsMapper extends Mapper<LongWritable, Text, NullWritable, Text> {
     @Override
     public void map(LongWritable key, Text value, Mapper.Context context) throws IOException, InterruptedException {
         String line = value.toString();

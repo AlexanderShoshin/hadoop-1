@@ -1,6 +1,5 @@
 package shoshin.alex.hadoop;
 
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
@@ -23,9 +22,9 @@ public class MRLongestWordTest {
 
     @Before
     public void setUp() throws URISyntaxException, FileNotFoundException {
-        Mapper mapper = new ExtractWordsMapper();
-        Reducer reducer = new FindLongestReducer();
-        Reducer combiner = new FindLongestReducer();
+        Mapper mapper = new ExtractRussianWordsMapper();
+        Reducer reducer = new FindLongestWordReducer();
+        Reducer combiner = new FindLongestWordReducer();
 
         mapDriver = new MapDriver<>();
         mapDriver.setMapper(mapper);

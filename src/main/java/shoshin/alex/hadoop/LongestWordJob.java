@@ -24,9 +24,9 @@ public class LongestWordJob extends Configured implements Tool {
         job.setJarByClass(LongestWordJob.class);
         job.setOutputKeyClass(NullWritable.class);
         job.setOutputValueClass(Text.class);
-        job.setMapperClass(ExtractWordsMapper.class);
-        job.setReducerClass(FindLongestReducer.class);
-        job.setCombinerClass(FindLongestReducer.class);
+        job.setMapperClass(ExtractRussianWordsMapper.class);
+        job.setReducerClass(FindLongestWordReducer.class);
+        job.setCombinerClass(FindLongestWordReducer.class);
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
         job.setNumReduceTasks(1);
