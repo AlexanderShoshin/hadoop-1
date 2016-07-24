@@ -10,9 +10,11 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
+import shoshin.alex.utils.Args;
 
 public class LongestWordJob extends Configured implements Tool {
     public static void main(String[] args) throws Exception {
+        new Args("Input file path", "Output directory path").checkInput(args);
         int res = ToolRunner.run(new Configuration(), new LongestWordJob(), args);
         System.exit(res);
     }
