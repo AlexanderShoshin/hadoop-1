@@ -18,8 +18,9 @@ public class ExtractRussianWordsMapper extends Mapper<LongWritable, Text, NullWr
         String line = value.toString();
         StringTokenizer tokenizer = new StringTokenizer(line);
         while (tokenizer.hasMoreTokens()) {
-            String word = Words.removePunctuationMarks(tokenizer.nextToken());
+            String word = tokenizer.nextToken();
             if (Words.isRussianWord(word)) {
+                word = Words.removePunctuationMarks(word);
                 context.write(NullWritable.get(), TextPool.getText(word.toLowerCase()));
             }
         }
