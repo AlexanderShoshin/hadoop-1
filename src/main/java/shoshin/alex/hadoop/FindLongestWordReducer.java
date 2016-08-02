@@ -10,9 +10,11 @@ public class FindLongestWordReducer extends Reducer<NullWritable, Text, NullWrit
             throws IOException, InterruptedException {
         String longestWord = "";
         int maxLength = 0;
-        for (Text word : values) {
-            if (word.toString().length() > maxLength) {
-                longestWord = word.toString();
+        String word;
+        for (Text text : values) {
+            word = text.toString();
+            if (word.length() > maxLength) {
+                longestWord = word;
                 maxLength = longestWord.length();
             }
         }
