@@ -14,7 +14,7 @@ import shoshin.alex.utils.Args;
 
 public class LongestWordJob extends Configured implements Tool {
     public static void main(String[] args) throws Exception {
-        new Args("Input file path", "Output directory path").checkInput(args);
+        Args.checkInput(args, "Input file path", "Output directory path");
         int res = ToolRunner.run(new Configuration(), new LongestWordJob(), args);
         System.exit(res);
     }

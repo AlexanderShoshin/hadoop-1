@@ -4,13 +4,7 @@ package shoshin.alex.utils;
  * Created by Administrator on 24.07.2016.
  */
 public class Args {
-    private String[] argsDescription;
-
-    public Args(String... argsDescription) {
-        this.argsDescription = argsDescription;
-    }
-
-    public void checkInput(String[] args) throws IllegalArgumentException {
+    public static void checkInput(String[] args, String... argsDescription) throws IllegalArgumentException {
         if (args.length != argsDescription.length) {
             StringBuilder message = new StringBuilder("Expected ")
                     .append(argsDescription.length)
