@@ -20,7 +20,7 @@ public class ExtractRussianWordsMapper extends Mapper<LongWritable, Text, NullWr
         while (tokenizer.hasMoreTokens()) {
             String word = Words.removePunctuationMarks(tokenizer.nextToken());
             if (Words.isRussianWord(word)) {
-                context.write(NullWritable.get(), new Text(word.toLowerCase()));
+                context.write(NullWritable.get(), TextPool.getText(word.toLowerCase()));
             }
         }
     }
